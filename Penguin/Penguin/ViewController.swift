@@ -13,15 +13,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.view.backgroundColor = UIColor.whiteColor();
-        self.title = "首页";
-        let barItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Compose, target: self, action: #selector(goPenguinVC));
-        self.navigationItem.rightBarButtonItem = barItem;
+        self.view.backgroundColor = .white
+        self.title = "首页"
+        let barItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.compose, target: self, action: #selector(goPenguinVC))
+        self.navigationItem.rightBarButtonItem = barItem
     }
     
-    func goPenguinVC() {
-        let vc = PenguinViewController();
-        self.navigationController?.pushViewController(vc, animated: true);
+    @objc func goPenguinVC() {
+        let vc = PenguinViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
