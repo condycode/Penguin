@@ -49,6 +49,7 @@ class PenguinViewController: UIViewController {
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delayTime*2) {
             let animate = CABasicAnimation(keyPath: "fillColor")
+            animate.fromValue = UIColor.clear.cgColor
             animate.toValue = UIColor.black.cgColor
             animate.duration = self.delayTime
             animate.isRemovedOnCompletion = false
@@ -75,10 +76,17 @@ class PenguinViewController: UIViewController {
         
         let rightEyeBallLayer = CAShapeLayer()
         rightEyeBallLayer.path = rightEyeBallPath.cgPath
-        rightEyeBallLayer.fillColor = UIColor.black.cgColor
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delayTime*4) {
+            let animate = CABasicAnimation(keyPath: "fillColor")
+            animate.fromValue = UIColor.clear.cgColor
+            animate.toValue = UIColor.black.cgColor
+            animate.duration = self.delayTime
+            animate.isRemovedOnCompletion = false
+            animate.fillMode = kCAFillModeForwards
+            
             contentView.layer.addSublayer(rightEyeBallLayer)
+            rightEyeBallLayer.add(animate, forKey: nil)
         }
         
         // 嘴
@@ -160,21 +168,26 @@ class PenguinViewController: UIViewController {
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delayTime*10) {
             headLayer.fillColor = UIColor.black.cgColor
-            headLayer.borderWidth = 0
+            
             leftEyeLayer.fillColor = UIColor.white.cgColor
-            leftEyeLayer.borderWidth = 0
+            
             rightEyeLayer.fillColor = UIColor.white.cgColor
-            rightEyeLayer.borderWidth = 0
+            
             mouseLayer.fillColor = UIColor(red: 246/255.0, green: 146/255.0, blue: 12/255.0, alpha: 1.0).cgColor
-            mouseLayer.borderWidth = 0
+            
             leftArmLayer.fillColor = UIColor.black.cgColor
-            leftArmLayer.borderWidth = 0
+            
             leftLegLayer.fillColor = UIColor(red: 246/255.0, green: 146/255.0, blue: 12/255.0, alpha: 1.0).cgColor
-            leftLegLayer.borderWidth = 0
+            
             rightLegLayer.fillColor = UIColor(red: 246/255.0, green: 146/255.0, blue: 12/255.0, alpha: 1.0).cgColor
-            rightLegLayer.borderWidth = 0
+            
             scarfLayer.fillColor = UIColor(red: 223/255.0, green: 0, blue: 25/255.0, alpha: 1.0).cgColor
-            scarfLayer.borderWidth = 0
+            
+            scarfLayer.lineWidth = 0
+            
+            leftLegLayer.lineWidth = 0
+            
+            rightLegLayer.lineWidth = 0
         }
     }
     
