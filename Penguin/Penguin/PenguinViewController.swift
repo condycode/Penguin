@@ -53,7 +53,7 @@ class PenguinViewController: UIViewController {
             animate.toValue = UIColor.black.cgColor
             animate.duration = self.delayTime
             animate.isRemovedOnCompletion = false
-            animate.fillMode = kCAFillModeForwards
+            animate.fillMode = CAMediaTimingFillMode.forwards
             
             contentView.layer.addSublayer(leftEyeBallLayer)
             leftEyeBallLayer.add(animate, forKey: nil)
@@ -83,7 +83,7 @@ class PenguinViewController: UIViewController {
             animate.toValue = UIColor.black.cgColor
             animate.duration = self.delayTime
             animate.isRemovedOnCompletion = false
-            animate.fillMode = kCAFillModeForwards
+            animate.fillMode = CAMediaTimingFillMode.forwards
             
             contentView.layer.addSublayer(rightEyeBallLayer)
             rightEyeBallLayer.add(animate, forKey: nil)
@@ -204,7 +204,7 @@ class PenguinViewController: UIViewController {
             animate.toValue = NSNumber(floatLiteral: 1)
             animate.duration = self.delayTime
             animate.isRemovedOnCompletion = false
-            animate.fillMode = kCAFillModeForwards
+            animate.fillMode = CAMediaTimingFillMode.forwards
             
             layer.add(animate, forKey: nil)
             toLayer.addSublayer(layer)
